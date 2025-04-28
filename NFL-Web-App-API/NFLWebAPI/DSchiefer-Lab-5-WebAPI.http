@@ -1,0 +1,6 @@
+@DSchiefer_Lab_5_WebAPI_HostAddress = http://localhost:5218
+
+GET {{DSchiefer_Lab_5_WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

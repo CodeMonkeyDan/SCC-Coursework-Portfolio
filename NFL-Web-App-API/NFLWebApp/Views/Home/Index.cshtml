@@ -1,0 +1,79 @@
+﻿@model IEnumerable<DSchiefer_Lab_5_WebApp.Models.GameResults>
+
+@{
+    ViewData["Title"] = "NFL Games";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">@ViewData["Title"]</h2>
+
+    <form method="get" asp-controller="Home" asp-action="Index" class="row g-3 mb-4">
+        <div class="col-md-2">
+            <label for="year" class="form-label">Year</label>
+            <input type="number" name="year" id="year" min="2000" max="2019" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <label for="week" class="form-label">Week</label>
+            <input type="text" name="week" id="week" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <label for="team" class="form-label">Team</label>
+            <input type="text" name="team" id="team" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <label for="winner" class="form-label">Winner</label>
+            <input type="text" name="winner" id="winner" class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <label for="home_away" class="form-label">Home/Away</label>
+            <select name="home_away" id="home_away" class="form-select">
+                <option value="">Any</option>
+                <option value="home">Home</option>
+                <option value="away">Away</option>
+            </select>
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary w-100">Search</button>
+        </div>
+    </form>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Year</th>
+                <th>Week</th>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Winner</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Points (Win)</th>
+                <th>Points (Loss)</th>
+                <th>Yards (Win)</th>
+                <th>Yards (Loss)</th>
+                <th>Turnovers (Win)</th>
+                <th>Turnovers (Loss)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var game in Model)
+            {
+                <tr>
+                    <td>@game.Year</td>
+                    <td>@game.Week</td>
+                    <td>@game.HomeTeam</td>
+                    <td>@game.AwayTeam</td>
+                    <td>@game.Winner</td>
+                    <td>@game.Date</td>
+                    <td>@game.Time</td>
+                    <td>@game.PtsWin</td>
+                    <td>@game.PtsLoss</td>
+                    <td>@game.YdsWin</td>
+                    <td>@game.YdsLoss</td>
+                    <td>@game.TurnoversWin</td>
+                    <td>@game.TurnoversLoss</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

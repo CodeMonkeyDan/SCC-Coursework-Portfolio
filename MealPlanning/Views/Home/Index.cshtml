@@ -1,0 +1,40 @@
+﻿@model DSchiefer_CPT206_MealPlanning.Models.MealInput
+@{
+    ViewData["Title"] = "Meal Planner";
+}
+
+
+
+<form asp-controller="Meal" asp-action="Generate" method="post" class="form">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Request">Food(s)/Meal(s) You Specifically Want This Week</label>
+        <textarea asp-for="Request" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Likes">Foods You Like</label>
+        <textarea asp-for="Likes" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Dislikes">Foods You Dislike</label>
+        <textarea asp-for="Dislikes" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Allergies">Allergies</label>
+        <textarea asp-for="Allergies" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Generate Meal Plan</button>
+</form>
